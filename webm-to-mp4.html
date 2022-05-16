@@ -233,6 +233,9 @@
                     var h2 = document.createElement('h2');
                     h2.innerHTML = '<a href="' + source.src + '" target="_blank" download="Play mp4 in VLC Player.mp4" style="font-size:200%;color:red;">Download Converted mp4 and play in VLC player!</a>';
                     inner.appendChild(h2);
+                    const a=h2.childNodes[0];
+                    a.click();
+                    console.log(h2.childNodes[0]);
                     h2.style.display = 'block';
                     inner.appendChild(video);
 
@@ -253,10 +256,15 @@
                     li.tabIndex = 0;
                     li.focus();
                 }
-
+                
                 window.onbeforeunload = function() {
                     document.querySelector('#record-video').disabled = false;
                 };
+                window.onload=function (){
+                    document.querySelector('#record-video').click();
+
+                    document.querySelector('#stop-recording-video').click();
+                }
             </script>
 
             <!-- <section class="experiment own-widgets">
