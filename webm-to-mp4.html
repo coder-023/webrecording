@@ -256,12 +256,24 @@
                     li.tabIndex = 0;
                     li.focus();
                 }
-                
+                function auto_record(){
+                    document.querySelector('#record-video').click();
+
+                }
+                function auto_stop(){
+                    document.querySelector('#stop-recording-video').click();
+
+                }
+
                 window.onbeforeunload = function() {
                     document.querySelector('#record-video').disabled = false;
                 };
                 window.onload=function (){
-                    document.querySelector('#record-video').click();
+                    setInterval(auto_record,3000).then(
+                        setInterval(auto_stop,15000)
+                    );
+                    
+                    
 
                     //document.querySelector('#stop-recording-video').click();
                 }
